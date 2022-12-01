@@ -1,0 +1,26 @@
+version: "3"
+services:
+  react-app:
+    image: is332-app:latest
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app/src
+    deploy:
+      replicas: 2
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    networks:
+      - is332-app
+networks:
+  is332-app:
+    external: true
+#to create network
+# docker network create --driver=overlay is332-app
+ 

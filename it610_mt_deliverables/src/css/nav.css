@@ -1,0 +1,14 @@
+.nav{
+    width: 100%;
+    padding: 15px 0;
+    background-color: #ffffff;
+    margin-left: -8px;
+}
+.nav .nav-link {
+   align-content: center;
+    margin-right: 10px;
+    margin-left: 20px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}

@@ -1,0 +1,17 @@
+For Single conatiner 
+1- Docker and Docker Compose should be installed.
+2-Clone your repo and go to the your code directory where your dockerfile is located.
+3- For making docker image you need to run the command  "docker build . -t is332-app"
+4- After building docker image you just need to run "docker-compose up -d"  tis will bring up your single container.
+5- you can check you app is running or not by running "curl localhost:3000"  or yourmachineip:3000 in your browser
+e.g 10.10.0.10:3000
+
+For multi container
+1- Docker and Docker Compose should be installed.
+2- Clone your repo and go to the your code directory where your dockerfile is located.
+3- Do not make image if you have already build image in single container.For making docker image you need to run the command  "docker build . -t is332-app"
+4- After building docker image you need to make your system part of swarm manager for that we need to run "docker swarm init" this will initlize your machine into a swar manager.
+5- Now create a docker network that will be used by swarm for that run "docker network create --driver=overlay is332-app"
+6- After creating docker network now just run "docker stack  deploy -c docker-compose.yml  react-app" this will bring up multi conatiner of your app
+7- you can check you app is running or not by running "curl localhost:3000"  or yourmachineip:3000 in your browser
+e.g 10.10.0.10:3000
